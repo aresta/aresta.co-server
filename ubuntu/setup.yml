@@ -62,7 +62,7 @@
       tags: common
 
     - name: Apache | Configuration file for our site
-      action: template src=templates/etc-apache2-sites-available-devserver.j2 dest=/etc/apache2/sites-available/devserver
+      action: template src=templates/etc-apache2-sites-available-devserver.j2 dest=/etc/apache2/sites-available/devserver.conf
       tags: common
 
     #- name: Apache | Disable the default site
