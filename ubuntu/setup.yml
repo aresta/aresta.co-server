@@ -73,6 +73,18 @@
       action: command a2ensite -q devserver
       tags: common
 
+    - name: PhpMyadmin
+      action: apt pkg=phpmyadmin state=installed
+      tags: common
+
+    - name: Mcrypt
+      action: file path=/etc/php5/conf.d/mcrypt.ini dest=/etc/php5/mods-available  state=link
+      tags: common
+
+    - name: Enable PMA
+      action: command php5enmod mcrypt
+      tags: common
+
     ##
     # FTP server setup.
     #
@@ -83,7 +95,7 @@
     - name: FTP | Configuration setup
       action: template src=templates/etc-vsftpd-conf.j2 dest=/etc/vsftpd.conf
       tags: ftp
-
+    
     ##
     # node.js installation (latest stable instead of Ubuntu's out-of-date one)
     #
