@@ -65,9 +65,9 @@
       action: template src=templates/etc-apache2-sites-available-devserver.j2 dest=/etc/apache2/sites-available/devserver
       tags: common
 
-    - name: Apache | Disable the default site
-      action: command a2dissite  -q default
-      tags: common
+    #- name: Apache | Disable the default site
+    #  action: command a2dissite  -q 000-default
+    #  tags: common
 
     - name: Apache | Enable our new site
       action: command a2ensite -q devserver
