@@ -66,11 +66,11 @@
       tags: common
 
     - name: Apache | Disable the default site
-      action: command a2dissite default
+      action: command a2dissite  -q default
       tags: common
 
     - name: Apache | Enable our new site
-      action: command a2ensite devserver
+      action: command a2ensite -q devserver
       tags: common
 
     ##
