@@ -78,7 +78,7 @@
       tags: common
 
     - name: Mcrypt
-      action: file path=/etc/php5/conf.d/mcrypt.ini dest=/etc/php5/mods-available  state=link
+      action: file src=/etc/php5/conf.d/mcrypt.ini dest=/etc/php5/mods-available/mcrypt.ini  state=link
       tags: common
 
     - name: Enable PMA
