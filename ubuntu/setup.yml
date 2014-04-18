@@ -1,6 +1,6 @@
 ##
 ---
-- hosts: all
+- hosts: web 
   user: root
 
   vars_files:
@@ -20,6 +20,7 @@
         - mysql-client
         - php5-mysql
         - php-apc
+        - php5-curl  
         - php5-xmlrpc
         - php-soap
         - php5-gd
@@ -37,6 +38,10 @@
     ##
     # PHP Setup.
     #
+    - name: conf.d creating
+      file: dest=/etc/php5/conf.d/ mode=0755 owner=root group=root state=directory
+      tags: common
+
     - name: PHP | Configuration file, php.ini
       action: template src=templates/etc-php5-apache2-php-ini.j2 dest=/etc/php5/apache2/php.ini
       tags: common
@@ -75,6 +80,10 @@
 
     - name: PhpMyadmin
       action: apt pkg=phpmyadmin state=installed
+      tags: common
+
+    - name: Enable PMA
+      action: command ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-enabled/phpmyadmin.conf
       tags: common
 
     - name: Mcrypt

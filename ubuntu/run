@@ -3,4 +3,4 @@
 # Script for running the play on the localhost, everything included.
 cp vars/default-settings.yml settings.yml
 
-ansible-playbook --tags="common,ftp,nodejs" ./setup.yml
+ansible-playbook --tags="common,ftp,nodejs" -i ../hosts setup.yml

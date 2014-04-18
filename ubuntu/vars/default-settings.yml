@@ -34,7 +34,7 @@ mysql_root_password: '2631987'
 
 # apache
 apache_server_admin: 'yeubutchi@gmail.com'
-apache_server_alias: '*.*.aresta.co'
+apache_server_alias: '*.aresta.co'
 
 # vsftpd
 vsftpd_anonymous_enable: 'NO'
